@@ -4,9 +4,14 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
 
 jobs:
+  check-formatting:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check formatting
+        run: npm run prettier-check
   build:
     runs-on: ubuntu-latest
 
