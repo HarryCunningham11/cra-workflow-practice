@@ -4,7 +4,7 @@ on:
   pull_request:
 
 jobs:
-  check-formatting:
+  formatting-and-tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,6 +19,10 @@ jobs:
         run: npm run prettier-check
         working-directory: ./cra-js
 
+      - name: Run the tests
+        run: npm test
+        working-directory: ./cra-js
+
   build:
     runs-on: ubuntu-latest
 
@@ -28,10 +32,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./cra-js
-
-      - name: Run the tests
-        run: npm test
         working-directory: ./cra-js
 
       - name: Build
