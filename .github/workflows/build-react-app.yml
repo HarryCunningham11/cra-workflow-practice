@@ -12,6 +12,7 @@ jobs:
     steps:
       - name: Check formatting
         run: npm run prettier-check
+        working-directory: ./cra-js
   build:
     runs-on: ubuntu-latest
 
